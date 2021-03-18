@@ -8,7 +8,6 @@
 #define PRESSURE_THRESHOLD      3
 
 bool isHeaterWorking = false;
-bool isPumpWorking = false;
 int current_temp;
 int current_pressure;
 
@@ -35,6 +34,11 @@ static void read_adc(port* portType, int *value)
     printf("Adc value readed for %s  and value written do given pointer address\n", portType->portName);
 }
 
+static void write_switch(bool value)
+{
+	isHeaterWorking = value;
+}
+
 void* pTaskTemperature(void *arg)
 {
     port* tempPort = (port*)arg;
@@ -48,12 +52,12 @@ void* pTaskTemperature(void *arg)
         if(current_temp < TEMPERATURE_THRESHOLD && !isHeaterWorking) //Run heater to increase temperature
         {
             printf("Heater is on!\n");
-            isHeaterWorking = true;
+            write_switch(true);
         }
         else if(current_temp >= TEMPERATURE_THRESHOLD && isHeaterWorking) //Shutdown heater so temperature can decrease
         {
             printf("Heater is shutdown!\n");
-            isHeaterWorking = false;
+            write_switch(false);
         }
     }
     return NULL;
@@ -90,6 +94,7 @@ void* pTaskDisplay(void *arg)
         pthread_mutex_lock(&pressMutex);
         printf("Display current pressure: %d\n", current_pressure);
         pthread_mutex_unlock(&pressMutex);
+
         usleep(10*1000); //100Hz sleep(10*1000) ms
     }
 }
