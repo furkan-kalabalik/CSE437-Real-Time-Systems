@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/Users/fk97/HW2/build",
+  "command": "/usr/bin/clang++ -I../inc -I../src -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -std=gnu++11 -o CMakeFiles/TimerAPI.dir/src/Timer.cpp.o -c /Users/fk97/HW2/src/Timer.cpp",
+  "file": "/Users/fk97/HW2/src/Timer.cpp"
+},
+{
+  "directory": "/Users/fk97/HW2/build",
+  "command": "/usr/bin/clang++ -I../inc -I../src -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -std=gnu++11 -o CMakeFiles/TimerAPI.dir/src/main.cpp.o -c /Users/fk97/HW2/src/main.cpp",
+  "file": "/Users/fk97/HW2/src/main.cpp"
+}
+]

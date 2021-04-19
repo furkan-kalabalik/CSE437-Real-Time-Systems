@@ -1,0 +1,3 @@
+/Users/fk97/HW2/build/CMakeFiles/rebuild_cache.dir
+/Users/fk97/HW2/build/CMakeFiles/edit_cache.dir
+/Users/fk97/HW2/build/CMakeFiles/TimerAPI.dir
